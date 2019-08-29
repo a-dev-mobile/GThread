@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="modelG"
+            type="a.dev.mobile.gthread.ModelG" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+
+        android:paddingBottom="10dp"
+        android:orientation="horizontal"
+
+        android:background="@color/colorPrimaryDark">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/gListNameMain"
+
+                    tools:text="@{modelG.desc2+' '+'-'+' '+modelG.threadPer}"
+
+                    android:text="G1 - 10" />
+
+
+                <TextView
+                    style="@style/gListNameMain"
+                    android:gravity="end"
+                    android:text="A"
+                    tools:text="@{modelG.class_}" />
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                style="@style/gListNameSub"
+                android:text="G1 x 0.5"
+                tools:text="@{modelG.desc1+' '+'x'+' '+modelG.threadPitch}" />
+
+
+        </LinearLayout>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            imageResource="@{modelG.imageResId}"
+            android:contentDescription="@null"
+            tools:src="@drawable/gaika"
+            android:adjustViewBounds="true" />
+
+    </LinearLayout>
+</layout>
