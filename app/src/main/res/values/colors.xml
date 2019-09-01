@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorBgMainLight">#EEEEEE</color>
+    <color name="colorBgCardLight">#FAFAFA</color>
+
+    <color name="colorBgMainDark">#272727</color>
+    <color name="colorBgCardDark">#333B40</color>
+
+
+    <color name="colorBgTextDarkMain">#FFFFFF</color>
+    <color name="colorBgTextDarkSub">#C2C5C6</color>
+
+    <color name="colorBgTextLightMain">#212121</color>
+    <color name="colorBgTextLightSub">#767676</color>
+
+
+
+
+
+
+
+
+
+
+    <color name="blue">#03a9f4</color>
+    <color name="blue_dark">#0288d1</color>
+
+    <color name="cyan">#00bcd4</color>
+    <color name="cyan_dark">#0097a7</color>
+
+    <color name="gray">#616161</color>
+    <color name="gray_dark">#424242</color>
+
+    <color name="green">#4caf50</color>
+    <color name="green_dark">#388e3c</color>
+
+    <color name="indigo">#3f51b5</color>
+    <color name="indigo_dark">#303f9f</color>
+
+    <color name="purple">#673ab7</color>
+    <color name="purple_dark">#512da8</color>
+
+    <color name="red">#f44336</color>
+    <color name="red_dark">#d32f2f</color>
+
+    <color name="background_dark">#312A2A</color>
+    <color name="background">#E4E0E0</color>
+
+
+
+
+
+
 </resources>

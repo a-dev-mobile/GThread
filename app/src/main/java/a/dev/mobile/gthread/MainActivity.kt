@@ -9,9 +9,13 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-
+import kotlinx.android.synthetic.main.activity_main.toolbar
 
 class MainActivity : AppCompatActivity(), OnGSelected {
+    companion object {
+        private const val TAG = "== MainActivity"
+    }
+
     override fun onGSelected(modelG: ModelG) {
         Log.i(TAG, "==click ${modelG.desc2}")
 
@@ -25,13 +29,15 @@ class MainActivity : AppCompatActivity(), OnGSelected {
     }*/
     }
 
-    companion object {
-        private const val TAG = "== MainActivity"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+
+
+
+
+
 
         DbSQLiteHelper(this).readableDatabase
         if (savedInstanceState == null) {
@@ -44,7 +50,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_scrolling, menu)
+        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
@@ -66,14 +72,14 @@ class MainActivity : AppCompatActivity(), OnGSelected {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("market://details?id=" + getPackageName())
+                    Uri.parse("market://details?id=$packageName")
                 )
             )
         } catch (e: ActivityNotFoundException) {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())
+                    Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
                 )
             )
         }
