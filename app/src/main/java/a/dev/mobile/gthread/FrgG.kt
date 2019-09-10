@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -91,6 +92,11 @@ class FrgG : Fragment() {
         val activity = activity as Context
         val recycleView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recycleView.layoutManager = GridLayoutManager(activity, 1)
+
+
+        //если хотим добавить разделители между ячейками
+        //recycleView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
         recycleView.adapter = GListAdapter(activity)
         return view
     }

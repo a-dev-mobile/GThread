@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bg_main" format="reference|color" />
+    <attr name="bg_sub" format="reference|color" />
+    <attr name="bg_text_main" format="reference|color" />
+    <attr name="bg_text_sub" format="reference|color" />
+
+
+
+    <attr name="backspace" format="reference" />
+</resources>

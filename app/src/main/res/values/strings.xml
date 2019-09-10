@@ -4,4 +4,55 @@
     <string name="action_settings">Settings</string>
     <string name="action_rating">Оценить</string>
     <string name="desc_thread">GOST 2222\nISO3333\nDIN2156456</string>
+
+
+    <string name="title_rate">Rate CNC Calculator</string>
+    <string name="info_rate">Share your opinion on the Google Play store.</string>
+    <string name="dialog_positive_rate">Sure</string>
+    <string name="dialog_negative_rate">No thanks</string>
+    <string name="dialog_Message_rate">Would you like to rate CNC Calculator on the Google Play store?</string>
+
+    <string name="pref_rate">Other</string>
+    <string name="pref_Interface">Appearance</string>
+    <string name="pref_dark_title_theme">Dark theme</string>
+    <string name="pref_brief_color_theme">Choose the theme color for the UI and launcher icon.</string>
+    <string name="pref_title_color_theme">Accent color</string>
+    <string name="pref_brief_dark_theme">Make the background a dark gray color.</string>
+
+    <!--  PREF START -->
+
+    <string name="pref_file">AppPreference</string>
+    <string name="pref_diam">AppPreference</string>
+
+    <!--  PREF END -->
+
+
+
+    <string-array name="theme_colors">
+        <item>"Blue"</item>
+        <item>"Cyan"</item>
+        <item>"Gray"</item>
+        <item>"Green"</item>
+        <item>"Purple"</item>
+        <item>"Red"</item>
+    </string-array>
+
+
+    <string-array name="theme_colors_ru">
+        <item>"Синия"</item>
+        <item>"Сине-зеленая"</item>
+        <item>"Серая"</item>
+        <item>"Зеленая"</item>
+        <item>"Пурпурная"</item>
+        <item>"Красная"</item>
+    </string-array>
+    <string-array name="theme_colors_entries">
+        <item>"0"</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+    </string-array>
+
 </resources>
