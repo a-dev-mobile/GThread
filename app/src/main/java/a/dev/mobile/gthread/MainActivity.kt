@@ -1,20 +1,15 @@
 package a.dev.mobile.gthread
 
 import a.dev.mobile.gthread.FrgG.OnGSelected
-import a.dev.mobile.gthread.R.id
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.databinding.DataBindingUtil.setContentView
 import kotlinx.android.synthetic.main.activity_main.toolbar
 
 class MainActivity : AppCompatActivity(), OnGSelected {
@@ -23,16 +18,21 @@ class MainActivity : AppCompatActivity(), OnGSelected {
     }
 
     override fun onGSelected(modelG: ModelG) {
-        Log.i(TAG, "==click ${modelG.desc2}")
-       val detailsFragment =
-            FrgGDetails.newInstance(modelG)
-        supportFragmentManager
-            .beginTransaction()
-            .replace(id.root_layout, detailsFragment, "gDetails")
-            .addToBackStack(null)
-            .commit()
-    }
 
+        Log.i(TAG, "==click ${modelG.desc2}")
+
+        val i = Intent(this, MainActivity2::class.java)
+        i.putExtra(ConstText.GMODEL_INTENT, modelG)
+        startActivity(i)
+
+        /* val detailsFragment =
+              FrgGDetails.newInstance(modelG)
+          supportFragmentManager
+              .beginTransaction()
+              .replace(id.root_layout, detailsFragment, "gDetails")
+              .addToBackStack(null)
+              .commit()*/
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,24 +40,24 @@ class MainActivity : AppCompatActivity(), OnGSelected {
 
 
 
-            if (sp.getBoolean("pref_dark", false))
-                when (sp.getString("pref_theme", "0")) {
-                    "0" -> setTheme(R.style.AppTheme_Dark_Blue)
-                    "1" -> setTheme(R.style.AppTheme_Dark_Cyan)
-                    "2" -> setTheme(R.style.AppTheme_Dark_Gray)
-                    "3" -> setTheme(R.style.AppTheme_Dark_Green)
-                    "4" -> setTheme(R.style.AppTheme_Dark_Purple)
-                    "5" -> setTheme(R.style.AppTheme_Dark_Red)
-                }
-            else
-                when (sp.getString("pref_theme", "0")) {
-                    "0" -> setTheme(R.style.AppTheme_Light_Blue)
-                    "1" -> setTheme(R.style.AppTheme_Light_Cyan)
-                    "2" -> setTheme(R.style.AppTheme_Light_Gray)
-                    "3" -> setTheme(R.style.AppTheme_Light_Green)
-                    "4" -> setTheme(R.style.AppTheme_Light_Purple)
-                    "5" -> setTheme(R.style.AppTheme_Light_Red)
-                }
+        if (sp.getBoolean("pref_dark", false))
+            when (sp.getString("pref_theme", "0")) {
+                "0" -> setTheme(R.style.AppTheme_Dark_Blue)
+                "1" -> setTheme(R.style.AppTheme_Dark_Cyan)
+                "2" -> setTheme(R.style.AppTheme_Dark_Gray)
+                "3" -> setTheme(R.style.AppTheme_Dark_Green)
+                "4" -> setTheme(R.style.AppTheme_Dark_Purple)
+                "5" -> setTheme(R.style.AppTheme_Dark_Red)
+            }
+        else
+            when (sp.getString("pref_theme", "0")) {
+                "0" -> setTheme(R.style.AppTheme_Light_Blue)
+                "1" -> setTheme(R.style.AppTheme_Light_Cyan)
+                "2" -> setTheme(R.style.AppTheme_Light_Gray)
+                "3" -> setTheme(R.style.AppTheme_Light_Green)
+                "4" -> setTheme(R.style.AppTheme_Light_Purple)
+                "5" -> setTheme(R.style.AppTheme_Light_Red)
+            }
 
 
         setContentView(R.layout.activity_main)
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
 
             R.id.action_rating -> actionRate()
 
-            R.id.action_settings->{
+            R.id.action_settings -> {
                 startActivity(
                     Intent(
                         this@MainActivity,
@@ -115,9 +115,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
                 )
             }
 
-
-
-                   }
+        }
         return true
     }
 

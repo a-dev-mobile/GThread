@@ -56,13 +56,13 @@ class FrgG : Fragment() {
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         if (context is OnGSelected) {
             mListener = context
         } else {
-            throw ClassCastException(context.toString() + " must implement OnGSelected.")
+            throw ClassCastException("$context must implement OnGSelected.")
         }
 
         db = DbSQLiteHelper(context as MainActivity).readableDatabase

@@ -31,12 +31,17 @@ object DBColumn {
     const val IN_MAJOR_DIA_MIN = "in_major_dia_min"
     const val IN_TAP_DRILL = "in_tap_drill"
 }
+object ConstText{
 
 
 
 
 
+    const val GMODEL_INTENT = "g_model"
 
+
+
+}
 
 
 
