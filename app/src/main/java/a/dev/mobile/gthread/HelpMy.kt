@@ -7,8 +7,7 @@ import java.util.ArrayList
 import android.graphics.PorterDuff
 import androidx.core.content.ContextCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
-
-
+import java.text.DecimalFormat
 
 object DBColumn {
 
@@ -38,6 +37,8 @@ object ConstText{
 
 
     const val GMODEL_INTENT = "g_model"
+    const val GMODEL_MM = 1
+    const val GMODEL_IN = 2
 
 
 
@@ -53,6 +54,34 @@ object ConstText{
 
 object HelpMy {
     var contextGetter: (() -> Context)? = null
+
+    fun mmToInch(mm: String): String {
+        val decimalFormat = DecimalFormat("###.####")
+        var value = mm.replace(",", ".")
+        value = try {
+            decimalFormat.format(java.lang.Double.parseDouble(value) / 25.4).replace(",", ".")
+        } catch (e: NumberFormatException) {
+            "-"
+        }
+
+
+        return value
+    }
+
+    fun inchTomm(inch: String): String {
+        val decimalFormat = DecimalFormat("###.####")
+        var value = inch.replace(",", ".")
+        value = try {
+            decimalFormat.format(java.lang.Double.parseDouble(value) * 25.4).replace(",", ".")
+        } catch (e: NumberFormatException) {
+            "-"
+        }
+
+        return value
+    }
+
+
+
 
     fun arrayStringFromCursor(cursor: Cursor, nameColumn: String): Array<String> {
         var i = -1

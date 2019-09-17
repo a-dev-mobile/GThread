@@ -57,4 +57,25 @@
         <item>"5"</item>
     </string-array>
 
+
+    <string name="thread_designations">Thread Designation</string>
+    <string name="major_diameter">Major diameter</string>
+    <string name="basic_major_diameter">Basic Diameter</string>
+    <string name="thread_per_inch">Thread per inch</string>
+    <string name="thread_series">Thread series</string>
+    <string name="class_of_fit">Class of fit</string>
+    <string name="allowance">Allowance</string>
+    <string name="max">Max</string>
+    <string name="min">Min</string>
+    <string name="min_">Min*</string>
+    <string name="pitch_diameter_and_functional_diameter">Pitch Diameter and Functional Diameter</string>
+    <string name="tolerance">Tolerance</string>
+    <string name="unr_minor_diametr">UNR Minor Diametr, Max</string>
+    <string name="major_diameter_min">Major Diameter, Min</string>
+    <string name="minor_diameter">Minor Diameter</string>
+
+    <string name="inch">inch</string>
+    <string name="mm">mm</string>
+    <string name="or">" or "</string>
+
 </resources>

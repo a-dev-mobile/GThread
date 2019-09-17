@@ -1,55 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="?attr/bg_main"
+    tools:ignore="RtlHardcoded">
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <data>
-
-        <variable
-            name="gModel"
-            type="a.dev.mobile.gthread.ModelG" />
-    </data>
-
-    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        tools:ignore="RtlHardcoded">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:background="?attr/bg_main"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:text="Имя резьбы" />
+                style="@style/gInfoNameMain"
+                android:textSize="14sp"
+                android:text="@string/thread_designations" />
+
+            <TextView
+                android:id="@+id/tvNameThreadMain"
+                style="@style/gInfoNameMain"
+                tools:text="G 1/16 - 28" />
+
+            <TextView
+                android:id="@+id/tvNameThreadSub"
+                style="@style/gInfoNameSub"
+                tools:text="G7.723 x 0.907" />
+        </LinearLayout>
+
+        <View style="@style/style_divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/style_name_setting_info"
+                android:text="Тип резьбы" />
+
+            <TextView
+                style="@style/style_value_setting_info"
+                android:text="G - Трубная цилиндрическая" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/style_name_setting_info"
+                android:text="@string/basic_major_diameter" />
+
+            <TextView
+                android:id="@+id/tvBaseDiam"
+                style="@style/style_value_setting_info" />
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:id="@+id/name"
 
-                tools:text="G1"
+                style="@style/style_name_setting_info"
 
-                android:layout_height="wrap_content"
-                android:text="@{gModel.desc1}"/>
+                android:text="@string/thread_per_inch" />
 
+            <TextView
+                android:id="@+id/tv_3"
+                style="@style/style_value_setting_info"
 
-
-
-            <View style="@style/style_divider" />
-            <View style="@style/style_divider" />
-
-
+                />
 
         </LinearLayout>
 
-    </ScrollView>
-</layout>
+
+
+
+        <View style="@style/style_divider" />
+
+        <View style="@style/style_divider" />
+    </LinearLayout>
+
+
+</ScrollView>

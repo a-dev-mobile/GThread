@@ -39,7 +39,7 @@
                 <TextView
                     style="@style/gListNameMain"
 
-                    tools:text="@{modelG.desc2+' '+'-'+' '+modelG.threadPer}"
+                    tools:text="@{modelG.desc2+'\''+'\''+'-'+' '+modelG.threadPer}"
 
                     android:text="G1 - 10" />
 

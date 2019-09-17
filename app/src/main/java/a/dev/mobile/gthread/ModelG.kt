@@ -7,7 +7,7 @@ data class ModelG(
 
     val id: Int,
 
-    val desc1: String,
+    var desc1: String,
     val desc2: String,
 
     val threadPitch: String,

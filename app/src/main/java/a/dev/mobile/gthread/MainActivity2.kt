@@ -1,30 +1,25 @@
 package a.dev.mobile.gthread
 
-import a.dev.mobile.gthread.FrgG.OnGSelected
 import a.dev.mobile.gthread.R.id
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity2 : AppCompatActivity()  {
+class MainActivity2 : AppCompatActivity() {
     companion object {
         private const val TAG = "== MainActivity2"
     }
-
-
 
     private lateinit var modelG: ModelG
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // modelG = intent.getSerializableExtra(ConstText.GMODEL_INTENT) as ModelG
+        modelG = intent.getSerializableExtra(ConstText.GMODEL_INTENT) as ModelG
 
         val sp = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+
 
 
 
@@ -50,29 +45,45 @@ class MainActivity2 : AppCompatActivity()  {
 
 
         setContentView(R.layout.activity_main2)
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
 
-        navView.setupWithNavController(navController)
+        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        if (savedInstanceState == null) {
+            loadFragment(true)
+        }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_home -> {
+                    Log.i(TAG, " navigation_1")
 
-        when (item.itemId) {
+                    loadFragment(true)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_dashboard -> {
+                    Log.i(TAG, " navigation_2")
+                    loadFragment(false)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_notifications -> {
+                    Log.i(TAG, " navigation_3")
 
-            R.id.navigation_dashboard -> {
-
-                val detailsFragment =
-                    FrgGDetails.newInstance(modelG)
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(id.nav_host_fragment, detailsFragment, "gDetails")
-                    .addToBackStack(null)
-                    .commit()
+                    return@OnNavigationItemSelectedListener true
+                }
             }
+            false
         }
-        return super.onOptionsItemSelected(item)
+
+    private fun loadFragment(isMM: Boolean) {
+        val fragment = FrgGDetails.newInstance(modelG, isMM)
+        supportFragmentManager.beginTransaction()
+            .replace(id.container, fragment)
+            .commit()
     }
 
     //закрыть сразу активити при нажатии назад
