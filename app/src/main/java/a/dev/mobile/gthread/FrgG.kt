@@ -1,12 +1,15 @@
 package a.dev.mobile.gthread
 
+
 import a.dev.mobile.gthread.HelpMy.arrayIntegerFromCursor
 import a.dev.mobile.gthread.HelpMy.arrayStringFromCursor
 import a.dev.mobile.gthread.databinding.RecyclerItemModelGBinding
 import android.content.Context
+import android.content.SharedPreferences
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +50,7 @@ class FrgG : Fragment() {
 
     private lateinit var db: SQLiteDatabase
     private lateinit var cursor: Cursor
+    lateinit var sp: SharedPreferences
 
     companion object {
         fun newInstance(): FrgG {
@@ -56,7 +60,7 @@ class FrgG : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
+        sp = PreferenceManager.getDefaultSharedPreferences(context)
         if (context is OnGSelected) {
             mListener = context
         } else {
@@ -142,10 +146,15 @@ class FrgG : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            val image: Int = if (class_[position] == "") {
 
-            val image = if (class_[position] == "") {
-                R.drawable.bolt
-            } else R.drawable.gaika
+                if (sp.getBoolean("pref_dark", false)) R.drawable.ic_gaika_light
+                else R.drawable.ic_gaika_dark
+            } else {
+
+                if (sp.getBoolean("pref_dark", false)) R.drawable.ic_bolt_light
+                else R.drawable.ic_bolt_dark
+            }
 
             val g = ModelG(
                 id[position],
@@ -157,7 +166,7 @@ class FrgG : Fragment() {
                 exMajorDiaMax[position],
                 exMajorDiaMin[position],
                 exPitchDiaMax[position],
-                exPitchDiaMax[position],
+                exPitchDiaMin[position],
                 exMinorDiaMax[position],
                 inMinorDiaMin[position],
                 inMinorDiaMax[position],

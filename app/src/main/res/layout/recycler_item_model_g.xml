@@ -67,9 +67,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            imageResource="@{modelG.imageResId}"
+
             android:contentDescription="@null"
-            tools:src="@drawable/gaika"
+            imageResource="@{modelG.imageResId}"
             android:adjustViewBounds="true" />
 
     </LinearLayout>

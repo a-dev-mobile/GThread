@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import java.io.FileOutputStream
 
-class DbSQLiteHelper(private val context: MainActivity) :
+class DbSQLiteHelper(private val context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
@@ -18,7 +18,7 @@ class DbSQLiteHelper(private val context: MainActivity) :
 
         private const val TAG = "== DbSQLiteHelper"
         const val DATABASE_NAME = "ThreadDB.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 3
     }
 
 //==============================

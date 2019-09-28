@@ -17,9 +17,10 @@ data class ModelG(
 
     val exMajorDiaMax: String,
     val exMajorDiaMin: String,
-    val exPitchDiaMax: String,
 
+    val exPitchDiaMax: String,
     val exPitchDiaMin: String,
+
     val exMinorDiaMax: String,
 
     val inMinorDiaMin: String,

@@ -72,7 +72,7 @@ class MainActivity2 : AppCompatActivity() {
                 }
                 R.id.navigation_notifications -> {
                     Log.i(TAG, " navigation_3")
-
+                    loadFragmentDraw()
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -81,6 +81,13 @@ class MainActivity2 : AppCompatActivity() {
 
     private fun loadFragment(isMM: Boolean) {
         val fragment = FrgGDetails.newInstance(modelG, isMM)
+        supportFragmentManager.beginTransaction()
+            .replace(id.container, fragment)
+            .commit()
+    }
+
+    private fun loadFragmentDraw() {
+        val fragment = FrgDraw.newInstance(modelG)
         supportFragmentManager.beginTransaction()
             .replace(id.container, fragment)
             .commit()

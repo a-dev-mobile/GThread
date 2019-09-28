@@ -25,13 +25,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
         i.putExtra(ConstText.GMODEL_INTENT, modelG)
         startActivity(i)
 
-        /* val detailsFragment =
-              FrgGDetails.newInstance(modelG)
-          supportFragmentManager
-              .beginTransaction()
-              .replace(id.root_layout, detailsFragment, "gDetails")
-              .addToBackStack(null)
-              .commit()*/
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,13 +1,9 @@
 package a.dev.mobile.gthread
 
-
 import android.content.Context
 import android.database.Cursor
-import java.util.ArrayList
-import android.graphics.PorterDuff
-import androidx.core.content.ContextCompat
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import java.text.DecimalFormat
+import java.util.ArrayList
 
 object DBColumn {
 
@@ -30,27 +26,14 @@ object DBColumn {
     const val IN_MAJOR_DIA_MIN = "in_major_dia_min"
     const val IN_TAP_DRILL = "in_tap_drill"
 }
-object ConstText{
 
-
-
+object ConstText {
 
 
     const val GMODEL_INTENT = "g_model"
     const val GMODEL_MM = 1
     const val GMODEL_IN = 2
-
-
-
 }
-
-
-
-
-
-
-
-
 
 object HelpMy {
     var contextGetter: (() -> Context)? = null
@@ -61,11 +44,53 @@ object HelpMy {
         value = try {
             decimalFormat.format(java.lang.Double.parseDouble(value) / 25.4).replace(",", ".")
         } catch (e: NumberFormatException) {
-            "-"
+            ""
         }
 
 
         return value
+    }
+
+    fun formatDecimal(value: String, numberFromPoint: Int): String {
+
+        var pattern = ""
+
+
+        when (numberFromPoint) {
+            1 -> pattern = "###.#"
+            2 -> pattern = "###.##"
+            3 -> pattern = "###.###"
+            4 -> pattern = "###.####"
+        }
+
+        val decimalFormat = DecimalFormat(pattern)
+        var text = value.replace(",", ".")
+        text = decimalFormat.format(stringToDouble(text)).replace(",", ".")
+
+        return text
+    }
+
+    fun formatDecimal(value: String): String {
+
+        return formatDecimal(value, 4)
+    }
+
+    fun stringToDouble(value: String): Double {
+
+        val text = value.replace(",", ".")
+        return try {
+            text.toDouble()
+        } catch (e: NumberFormatException) {
+            0.0
+        }
+    }
+
+    fun doubleToString(value: Double): String {
+
+        val text = value.toString().replace(",", ".")
+
+        text.toDouble()
+        return text
     }
 
     fun inchTomm(inch: String): String {
@@ -79,9 +104,6 @@ object HelpMy {
 
         return value
     }
-
-
-
 
     fun arrayStringFromCursor(cursor: Cursor, nameColumn: String): Array<String> {
         var i = -1
@@ -151,6 +173,42 @@ object HelpMy {
             throw NullPointerException("doubleArrayList.size == 0")
         }
         return toPrimitive(doubleArrayList.toTypedArray())
+    }
+
+
+    fun getMaxValue(array: FloatArray): Float {
+        var maxValue = array[0]
+        for (i in 1 until array.size) {
+            if (array[i] > maxValue) {
+                maxValue = array[i]
+            }
+        }
+        return maxValue
+    }
+
+    fun getMinValue(array: FloatArray): Float {
+        var minValue = array[0]
+        for (i in 1 until array.size) {
+            if (array[i] < minValue) {
+                minValue = array[i]
+            }
+        }
+        return minValue
+    }
+
+
+
+    fun arrayFloatFromCursor(cursor: Cursor, nameColumn: String): FloatArray {
+        var i = -1
+        val values = FloatArray(cursor.count)
+        if (cursor.moveToFirst()) {
+            do {
+                i++
+                values[i] = cursor.getFloat(cursor.getColumnIndex(nameColumn))
+            } while (cursor.moveToNext())
+        }
+
+        return values
     }
 }
 

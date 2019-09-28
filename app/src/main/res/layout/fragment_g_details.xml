@@ -30,6 +30,7 @@
             <TextView
                 android:id="@+id/tvNameThreadSub"
                 style="@style/gInfoNameSub" />
+
             <TextView
                 android:id="@+id/tvTypeThread"
                 style="@style/gInfoNameSub"
@@ -56,9 +57,9 @@
 
 
         <LinearLayout
+            android:id="@+id/viewEx1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/viewEx1"
             android:orientation="horizontal">
 
 
@@ -72,6 +73,7 @@
                 style="@style/style_value_setting_info" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,7 +111,9 @@
                 style="@style/style_value_setting_info" />
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/viewEx2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -128,7 +132,286 @@
 
         <View style="@style/style_divider" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvInfoCenterTitle2"
+                style="@style/gInfoNameMain"
+                android:textSize="14sp"
+                tools:text="@string/minor_diameter" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+                android:text="@string/tolerance" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+
+                <TextView
+
+                    android:id="@+id/tvMinorMajorDiam"
+                    style="@style/style_value_setting_info"
+
+                    android:text="6" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvMinorMajorDiamEs"
+                        style="@style/style_es" />
+
+                    <TextView
+                        android:id="@+id/tvMinorMajorDiamEi"
+                        style="@style/style_ei" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/max" />
+
+            <TextView
+                android:id="@+id/tvMinorMajorDiamMax"
+
+                style="@style/style_value_setting_info"
+
+                android:text="9" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/mean" />
+
+            <TextView
+                android:id="@+id/tvMinorMajorDiamMean"
+                style="@style/style_value_setting_info"
+
+                android:text="8" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/style_name_setting_info"
+
+                android:text="@string/min" />
+
+            <TextView
+                android:id="@+id/tvMinorMajorDiamMin"
+                style="@style/style_value_setting_info"
+
+                android:text="7" />
+        </LinearLayout>
+
         <View style="@style/style_divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/gInfoNameMain"
+                android:text="@string/pitch_diameter_and_functional_diameter"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+                android:text="@string/tolerance" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+
+                <TextView
+
+                    android:id="@+id/tvPitchDiam"
+                    style="@style/style_value_setting_info"
+
+                    android:text="6" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvPitchDiamEs"
+                        style="@style/style_es" />
+
+                    <TextView
+                        android:id="@+id/tvPitchDiamEi"
+                        style="@style/style_ei" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/max" />
+
+            <TextView
+                android:id="@+id/tvPitchDiamMax"
+
+                style="@style/style_value_setting_info"
+
+                android:text="9" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/mean" />
+
+            <TextView
+                android:id="@+id/tvPitchDiamMean"
+                style="@style/style_value_setting_info"
+
+                android:text="8" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/style_name_setting_info"
+
+                android:text="@string/min" />
+
+            <TextView
+                android:id="@+id/tvPitchDiamMin"
+                style="@style/style_value_setting_info"
+
+                android:text="7" />
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/viewEx3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <View style="@style/style_divider" />
+            <TextView
+
+                style="@style/gInfoNameMain"
+                android:textSize="14sp"
+                android:text="@string/major_diameter" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewEx4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/min" />
+
+            <TextView
+                android:id="@+id/tvInMajorDiamMin"
+                style="@style/style_value_setting_info"
+
+                />
+        </LinearLayout>
+
+        <View style="@style/style_divider" />
+
+
     </LinearLayout>
 
 

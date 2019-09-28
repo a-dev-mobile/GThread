@@ -7,5 +7,6 @@
 
 
 
-    <attr name="backspace" format="reference" />
+    <attr name="draw_bolt" format="reference" />
+    <attr name="draw_gaika" format="reference" />
 </resources>
