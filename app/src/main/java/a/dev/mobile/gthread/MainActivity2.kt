@@ -31,6 +31,7 @@ class MainActivity2 : AppCompatActivity() {
                 "3" -> setTheme(R.style.AppTheme_Dark_Green)
                 "4" -> setTheme(R.style.AppTheme_Dark_Purple)
                 "5" -> setTheme(R.style.AppTheme_Dark_Red)
+                "6" -> setTheme(R.style.AppTheme_Dark_Indigo)
             }
         else
             when (sp.getString("pref_theme", "0")) {
@@ -40,13 +41,14 @@ class MainActivity2 : AppCompatActivity() {
                 "3" -> setTheme(R.style.AppTheme_Light_Green)
                 "4" -> setTheme(R.style.AppTheme_Light_Purple)
                 "5" -> setTheme(R.style.AppTheme_Light_Red)
+                "6" -> setTheme(R.style.AppTheme_Light_Indigo)
             }
 
 
 
         setContentView(R.layout.activity_two)
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navView: BottomNavigationView = findViewById(id.nav_view)
 
 
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -59,13 +61,13 @@ class MainActivity2 : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.navigation_home -> {
+                id.navigation_home -> {
                     Log.i(TAG, " navigation_1")
 
                     loadFragment(true)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.navigation_dashboard -> {
+                id.navigation_dashboard -> {
                     Log.i(TAG, " navigation_2")
                     loadFragment(false)
                     return@OnNavigationItemSelectedListener true

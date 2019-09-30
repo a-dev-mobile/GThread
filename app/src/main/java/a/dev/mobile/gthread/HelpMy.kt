@@ -2,22 +2,17 @@ package a.dev.mobile.gthread
 
 import android.content.Context
 import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.VectorDrawable
+import android.os.Build.VERSION_CODES
+import androidx.annotation.DrawableRes
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import java.text.DecimalFormat
 import java.util.ArrayList
-import android.graphics.drawable.VectorDrawable
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
-import android.graphics.drawable.BitmapDrawable
-import androidx.core.content.ContextCompat
-import android.graphics.drawable.Drawable
-import androidx.annotation.DrawableRes
-import android.graphics.Bitmap
-import android.opengl.ETC1.getHeight
-import android.opengl.ETC1.getWidth
-import android.os.Build
-import android.annotation.TargetApi
-import android.graphics.Canvas
-import android.os.Build.VERSION_CODES
-import androidx.annotation.RequiresApi
 
 object DBColumn {
 
@@ -45,8 +40,6 @@ object ConstText {
 
 
     const val GMODEL_INTENT = "g_model"
-    const val GMODEL_MM = 1
-    const val GMODEL_IN = 2
 }
 
 object HelpMy {
@@ -65,7 +58,7 @@ object HelpMy {
         return value
     }
 
-    fun formatDecimal(value: String, numberFromPoint: Int): String {
+    private fun formatDecimal(value: String, numberFromPoint: Int): String {
 
         var pattern = ""
 
@@ -167,10 +160,10 @@ object HelpMy {
         return toPrimitive(arrayList.toTypedArray())
     }
 
-    fun toPrimitive(arrayDouble: Array<Double>?): DoubleArray? {
+    private fun toPrimitive(arrayDouble: Array<Double>?): DoubleArray? {
         if (arrayDouble == null) {
             return null
-        } else if (arrayDouble.size == 0) {
+        } else if (arrayDouble.isEmpty()) {
             throw NullPointerException("arrayDouble.length == 0")
         }
         val result = DoubleArray(arrayDouble.size)
@@ -232,7 +225,7 @@ object HelpMy {
             vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888
         )
         val canvas = Canvas(bitmap)
-        vectorDrawable.setBounds(0, 0, canvas.width, canvas.getHeight())
+        vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
         vectorDrawable.draw(canvas)
         return bitmap
     }
@@ -243,7 +236,7 @@ object HelpMy {
             vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888
         )
         val canvas = Canvas(bitmap)
-        vectorDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight())
+        vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
         vectorDrawable.draw(canvas)
         return bitmap
     }
@@ -252,14 +245,11 @@ object HelpMy {
     @RequiresApi(VERSION_CODES.LOLLIPOP)
     fun getBitmap(context: Context, @DrawableRes drawableResId: Int): Bitmap {
         val drawable = ContextCompat.getDrawable(context, drawableResId)
-        return if (drawable is BitmapDrawable) {
-            drawable.bitmap
-        } else if (drawable is VectorDrawableCompat) {
-            getBitmap((drawable as VectorDrawableCompat?)!!)
-        } else if (drawable is VectorDrawable) {
-            getBitmap((drawable as VectorDrawable?)!!)
-        } else {
-            throw IllegalArgumentException("Unsupported drawable type")
+        return when (drawable) {
+            is BitmapDrawable -> drawable.bitmap
+            is VectorDrawableCompat -> getBitmap((drawable as VectorDrawableCompat?)!!)
+            is VectorDrawable -> getBitmap((drawable as VectorDrawable?)!!)
+            else -> throw IllegalArgumentException("Unsupported drawable type")
         }
     }
 

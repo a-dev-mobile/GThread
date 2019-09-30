@@ -12,7 +12,8 @@
         android:supportsRtl="true"
 
 
-        android:theme="@style/AppTheme.Light">
+        android:theme="@style/AppTheme.Light"
+        >
 
         <activity
             android:name=".MainActivity"
@@ -80,6 +81,16 @@
 
         <activity-alias
             android:name=".MainActivityRed"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher_red"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".MainActivityIndigo"
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_red"
             android:targetActivity=".MainActivity">

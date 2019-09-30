@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
                 "3" -> setTheme(R.style.AppTheme_Dark_Green)
                 "4" -> setTheme(R.style.AppTheme_Dark_Purple)
                 "5" -> setTheme(R.style.AppTheme_Dark_Red)
+                "6" -> setTheme(R.style.AppTheme_Dark_Indigo)
             }
         else
             when (sp.getString("pref_theme", "0")) {
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
                 "3" -> setTheme(R.style.AppTheme_Light_Green)
                 "4" -> setTheme(R.style.AppTheme_Light_Purple)
                 "5" -> setTheme(R.style.AppTheme_Light_Red)
+                "6" -> setTheme(R.style.AppTheme_Light_Indigo)
             }
 
 

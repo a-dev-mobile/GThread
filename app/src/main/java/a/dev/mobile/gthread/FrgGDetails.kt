@@ -1,6 +1,7 @@
 package a.dev.mobile.gthread
 
 import a.dev.mobile.gthread.R.drawable
+import a.dev.mobile.gthread.R.string
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -96,8 +97,8 @@ class FrgGDetails : Fragment() {
         }
 
 
-        if (isEx) tvTypeThread.text = "G - Трубная цилиндрическая наружняя"
-        else tvTypeThread.text = "G - Трубная цилиндрическая внутренняя"
+        if (isEx) tvTypeThread.text = getString(string.name_thread_ex)
+        else tvTypeThread.text = getString(string.name_thread_шт)
 
         tvThreadPerInch.text = HelpMy.formatDecimal(model.threadPer)
 
@@ -138,7 +139,7 @@ class FrgGDetails : Fragment() {
         var es = ""
 
         if (isEx) {
-            tvInfoCenterTitle2.text = resources.getString(R.string.major_diameter)
+            tvInfoCenterTitle2.text = resources.getString(string.major_diameter)
 
             diam = model.exMajorDiaMax
             ei = HelpMy.formatDecimal(
@@ -171,7 +172,7 @@ class FrgGDetails : Fragment() {
             tvMinorMajorDiamMax.text = HelpMy.formatDecimal(max)
             tvMinorMajorDiamMean.text = HelpMy.formatDecimal(mean)
         } else {
-            tvInfoCenterTitle2.text = resources.getString(R.string.minor_diameter)
+            tvInfoCenterTitle2.text = resources.getString(string.minor_diameter)
             diam = model.inMinorDiaMin
             es =
                 HelpMy.formatDecimal(
