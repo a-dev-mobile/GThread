@@ -5,11 +5,11 @@
     <string name="action_rating">Оценить</string>
 
 
-    <string name="title_rate">Rate CNC Calculator</string>
+    <string name="title_rate">Rate GThread</string>
     <string name="info_rate">Share your opinion on the Google Play store.</string>
     <string name="dialog_positive_rate">Sure</string>
     <string name="dialog_negative_rate">No thanks</string>
-    <string name="dialog_Message_rate">Would you like to rate CNC Calculator on the Google Play store?</string>
+    <string name="dialog_Message_rate">Would you like to rate GThread on the Google Play store?</string>
 
     <string name="pref_rate">Other</string>
     <string name="pref_Interface">Appearance</string>
