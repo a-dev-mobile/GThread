@@ -4,6 +4,20 @@ import android.content.Context
 import android.database.Cursor
 import java.text.DecimalFormat
 import java.util.ArrayList
+import android.graphics.drawable.VectorDrawable
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import android.graphics.drawable.BitmapDrawable
+import androidx.core.content.ContextCompat
+import android.graphics.drawable.Drawable
+import androidx.annotation.DrawableRes
+import android.graphics.Bitmap
+import android.opengl.ETC1.getHeight
+import android.opengl.ETC1.getWidth
+import android.os.Build
+import android.annotation.TargetApi
+import android.graphics.Canvas
+import android.os.Build.VERSION_CODES
+import androidx.annotation.RequiresApi
 
 object DBColumn {
 
@@ -210,5 +224,44 @@ object HelpMy {
 
         return values
     }
+
+
+    private fun getBitmap(vectorDrawable: VectorDrawable): Bitmap {
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        vectorDrawable.setBounds(0, 0, canvas.width, canvas.getHeight())
+        vectorDrawable.draw(canvas)
+        return bitmap
+    }
+
+    private fun getBitmap(vectorDrawable: VectorDrawableCompat): Bitmap {
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        vectorDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight())
+        vectorDrawable.draw(canvas)
+        return bitmap
+    }
+
+
+    @RequiresApi(VERSION_CODES.LOLLIPOP)
+    fun getBitmap(context: Context, @DrawableRes drawableResId: Int): Bitmap {
+        val drawable = ContextCompat.getDrawable(context, drawableResId)
+        return if (drawable is BitmapDrawable) {
+            drawable.bitmap
+        } else if (drawable is VectorDrawableCompat) {
+            getBitmap((drawable as VectorDrawableCompat?)!!)
+        } else if (drawable is VectorDrawable) {
+            getBitmap((drawable as VectorDrawable?)!!)
+        } else {
+            throw IllegalArgumentException("Unsupported drawable type")
+        }
+    }
+
 }
 

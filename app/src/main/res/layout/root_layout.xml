@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main"
+    tools:showIn="@layout/activity_one"
     tools:context=".MainActivity"
 
     android:id="@+id/root_layout"

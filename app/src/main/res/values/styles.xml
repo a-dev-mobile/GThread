@@ -3,6 +3,7 @@
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="bg_main">@color/bg_main_light</item>
         <item name="bg_sub">@color/bg_sub_light</item>
+        <item name="custom_view">@drawable/ic_ex_draw_dark</item>
 
         <item name="bg_text_main">@color/bg_text_main_light</item>
         <item name="bg_text_sub">@color/bg_text_sub_light</item>
@@ -13,7 +14,7 @@
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="bg_main">@color/bg_main_dark</item>
         <item name="bg_sub">@color/bg_sub_dark</item>
-
+        <item name="custom_view">@drawable/ic_ex_draw_light</item>
         <item name="bg_text_main">@color/bg_text_main_dark</item>
         <item name="bg_text_sub">@color/bg_text_sub_dark</item>
 

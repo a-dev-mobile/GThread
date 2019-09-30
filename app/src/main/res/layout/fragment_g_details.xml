@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+
     android:background="?attr/bg_main"
     tools:ignore="RtlHardcoded">
 
@@ -66,7 +67,7 @@
             <TextView
 
                 style="@style/style_name_setting_info"
-                android:text="Диаметр сверла" />
+                android:text="@string/diam_drill" />
 
             <TextView
                 android:id="@+id/tvTapDrill"
@@ -261,7 +262,7 @@
 
             <TextView
                 style="@style/gInfoNameMain"
-                android:text="@string/pitch_diameter_and_functional_diameter"
+                android:text="@string/pitch_diameter"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -373,14 +374,14 @@
         </LinearLayout>
 
 
-
-
         <LinearLayout
             android:id="@+id/viewEx3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <View style="@style/style_divider" />
+
             <TextView
 
                 style="@style/gInfoNameMain"
@@ -409,8 +410,91 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/style_divider" />
+
+            <TextView
+
+                style="@style/gInfoNameMain"
+                android:textSize="14sp"
+                android:text="@string/other_settings" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/thread_H" />
+
+            <TextView
+
+                android:id="@+id/tv_H"
+                style="@style/style_value_setting_info" />
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/thread_h" />
+
+            <TextView
+
+                android:id="@+id/tv_h"
+                style="@style/style_value_setting_info" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/rounding_r1" />
+
+            <TextView
+
+                android:id="@+id/tv_r"
+                style="@style/style_value_setting_info" />
+        </LinearLayout>
+
+
         <View style="@style/style_divider" />
 
+
+        <ImageView
+            android:id="@+id/iv_draw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:adjustViewBounds="true"
+            android:paddingBottom="?attr/actionBarSize"
+            tools:src="@drawable/ic_in_draw_dark"
+            android:contentDescription="@null" />
 
     </LinearLayout>
 

@@ -59,7 +59,10 @@
 
 
     <string name="thread_designations">Thread Designation</string>
-    <string name="major_diameter">Major diameter</string>
+    <string name="major_diameter">Major diameter d(=D)</string>
+    <string name="pitch_diameter">Pitch Diameter d2(=D2)</string>
+    <string name="minor_diameter">Minor Diameter d1(=D1)</string>
+
     <string name="basic_major_diameter">Basic Diameter</string>
     <string name="thread_per_inch">Thread per inch</string>
     <string name="thread_series">Thread series</string>
@@ -68,11 +71,9 @@
     <string name="max">Max</string>
     <string name="min">Min</string>
     <string name="min_">Min*</string>
-    <string name="pitch_diameter_and_functional_diameter">Pitch Diameter and Functional Diameter</string>
     <string name="tolerance">Tolerance</string>
-    <string name="unr_minor_diametr">UNR Minor Diametr, Max</string>
+    <string name="unr_minor_diametr">UNR Minor Diameter, Max</string>
     <string name="major_diameter_min">Major Diameter, Min</string>
-    <string name="minor_diameter">Minor Diameter</string>
 
     <string name="inch">inch</string>
     <string name="mm">mm</string>
@@ -101,11 +102,12 @@
     <string name="tolerance_class">Tolerance Class</string>
     <string name="mean">Mean</string>
     <string name="other_settings">Other settings</string>
-    <string name="height_of_fundamental_triangle">Height of fundamental triangle, H</string>
+    <string name="thread_h">Basic Height of Thread, h</string>
+    <string name="thread_H">Height of Sharp V Thread, H</string>
     <string name="crest_clearance">Crest clearance, ac</string>
     <string name="height_of_the_overlapping">Height of the overlapping, H1</string>
-    <string name="rounding_r1">Rounding, R1max</string>
-    <string name="rounding_r2">Rounding, R2max</string>
+    <string name="rounding_r1">Rounding, r (max)</string>
+
 
 
     <string name="no_email_clients">There are no email clients installed.</string>
@@ -127,7 +129,7 @@
     <string name="tr">Trapezoidal Thread System</string>
     <string name="other">Other</string>
     <string name="send">Send Email</string>
-
+    <string name="diam_drill">Диаметр сверла</string>
 
 
 </resources>

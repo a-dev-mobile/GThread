@@ -1,10 +1,14 @@
 package a.dev.mobile.gthread
 
+import a.dev.mobile.gthread.R.drawable
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -15,6 +19,7 @@ class FrgGDetails : Fragment() {
     //2
     companion object {
 
+        lateinit var sp: SharedPreferences
         private const val TAG = "== FrgGDetails"
         private const val G_MODEL = "model"
         private var isMM: Boolean = true
@@ -38,6 +43,8 @@ class FrgGDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        sp = PreferenceManager.getDefaultSharedPreferences(context)
 
         val root = inflater.inflate(R.layout.fragment_g_details, container, false)
 
@@ -77,14 +84,15 @@ class FrgGDetails : Fragment() {
 
 
 
+
         if (isMM) {
             tvNameThreadMain.text = "${model.desc1} x ${model.threadPitch}   ${model.class_}"
             tvNameThreadSub.text = "${model.desc2}\" - ${model.threadPer}"
-            tvBaseDiamThread.text = model.desc1.removePrefix("G ") + " mm"
+            tvBaseDiamThread.text = model.desc1.removePrefix("G ")
         } else {
             tvNameThreadMain.text = "${model.desc2}\" - ${model.threadPer}   ${model.class_}"
             tvNameThreadSub.text = "${model.desc1} x ${model.threadPitch}"
-            tvBaseDiamThread.text = "${model.desc2.removePrefix("G ")}\""
+            tvBaseDiamThread.text = model.desc2.removePrefix("G ")
         }
 
 
@@ -92,7 +100,15 @@ class FrgGDetails : Fragment() {
         else tvTypeThread.text = "G - Трубная цилиндрическая внутренняя"
 
         tvThreadPerInch.text = HelpMy.formatDecimal(model.threadPer)
-        tvThreadPith.text = model.threadPitch + " mm"
+
+
+
+        if (isMM) tvThreadPith.text = model.threadPitch
+        else tvThreadPith.text = HelpMy.mmToInch(model.threadPitch)
+
+
+
+
 
         if (isEx) tvThreadClass.text = model.class_
 
@@ -111,15 +127,15 @@ class FrgGDetails : Fragment() {
         }
 
 
-        if (isMM) tvTapDrill.text = HelpMy.formatDecimal(model.inTapDrill) + " mm"
-        else tvTapDrill.text = HelpMy.mmToInch(model.inTapDrill) + "\""
+        if (isMM) tvTapDrill.text = HelpMy.formatDecimal(model.inTapDrill)
+        else tvTapDrill.text = HelpMy.mmToInch(model.inTapDrill)
 
         var diam: String
         var mean: String
         var min: String
         var max: String
-        var ei: String = ""
-        var es: String = ""
+        var ei = ""
+        var es = ""
 
         if (isEx) {
             tvInfoCenterTitle2.text = resources.getString(R.string.major_diameter)
@@ -249,10 +265,53 @@ class FrgGDetails : Fragment() {
 
 
 
+
         if (isMM) tvInMajorDiamMin.text = HelpMy.formatDecimal(model.inMajorDiaMin)
         else tvInMajorDiamMin.text = HelpMy.mmToInch(model.inMajorDiaMin)
 
 
+
+
+
+        setOtherSettingThread(root, model)
+
+        setImageThread(root)
+
+
         return root
+    }
+
+    private fun setImageThread(root: View) {
+        val ivDraw: ImageView = root.findViewById(R.id.iv_draw)
+        val image: Int = if (!isEx) {
+            if (sp.getBoolean("pref_dark", false)) drawable.ic_in_draw_light
+            else drawable.ic_in_draw_dark
+        } else {
+
+            if (sp.getBoolean("pref_dark", false)) drawable.ic_ex_draw_light
+            else drawable.ic_ex_draw_dark
+        }
+
+        ivDraw.setImageResource(image)
+    }
+
+    private fun setOtherSettingThread(root: View, model: ModelG) {
+        val tvh: TextView = root.findViewById(R.id.tv_h)
+        val tvH: TextView = root.findViewById(R.id.tv_H)
+        val tvr: TextView = root.findViewById(R.id.tv_r)
+
+        var hOrR = (0.960491 * (HelpMy.stringToDouble(model.threadPitch))).toString()
+        if (isMM) tvH.text = HelpMy.formatDecimal(hOrR)
+        else tvH.text = HelpMy.mmToInch(hOrR)
+
+
+        hOrR = (0.640327 * (HelpMy.stringToDouble(model.threadPitch))).toString()
+        if (isMM) tvh.text = HelpMy.formatDecimal(hOrR)
+        else tvh.text = HelpMy.mmToInch(hOrR)
+
+
+        hOrR = (0.137329 * (HelpMy.stringToDouble(model.threadPitch))).toString()
+        if (isMM) tvr.text = HelpMy.formatDecimal(hOrR)
+        else tvr.text = HelpMy.mmToInch(hOrR)
     }
 }

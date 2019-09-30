@@ -10,7 +10,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.toolbar
+import kotlinx.android.synthetic.main.activity_one.toolbar
 
 class MainActivity : AppCompatActivity(), OnGSelected {
     companion object {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), OnGSelected {
             }
 
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_one)
         setSupportActionBar(toolbar)
 
 

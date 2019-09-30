@@ -44,7 +44,7 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_two)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -70,11 +70,7 @@ class MainActivity2 : AppCompatActivity() {
                     loadFragment(false)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.navigation_notifications -> {
-                    Log.i(TAG, " navigation_3")
-                    loadFragmentDraw()
-                    return@OnNavigationItemSelectedListener true
-                }
+
             }
             false
         }
@@ -86,12 +82,7 @@ class MainActivity2 : AppCompatActivity() {
             .commit()
     }
 
-    private fun loadFragmentDraw() {
-        val fragment = FrgDraw.newInstance(modelG)
-        supportFragmentManager.beginTransaction()
-            .replace(id.container, fragment)
-            .commit()
-    }
+
 
     //закрыть сразу активити при нажатии назад
     override fun onBackPressed() {
