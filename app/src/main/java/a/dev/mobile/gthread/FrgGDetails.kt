@@ -21,6 +21,10 @@ class FrgGDetails : Fragment() {
     companion object {
 
         lateinit var sp: SharedPreferences
+        lateinit var model: ModelG
+        @SuppressLint("StaticFieldLeak")
+        lateinit var root: View
+
         private const val TAG = "== FrgGDetails"
         private const val G_MODEL = "model"
         private var isMM: Boolean = true
@@ -47,9 +51,9 @@ class FrgGDetails : Fragment() {
 
         sp = PreferenceManager.getDefaultSharedPreferences(context)
 
-        val root = inflater.inflate(R.layout.fragment_g_details, container, false)
+        root = inflater.inflate(R.layout.fragment_g_details, container, false)
 
-        val model = arguments!!.getSerializable(G_MODEL) as ModelG
+        model = arguments!!.getSerializable(G_MODEL) as ModelG
 
         val tvNameThreadMain: TextView = root.findViewById(R.id.tvNameThreadMain)
         val tvNameThreadSub: TextView = root.findViewById(R.id.tvNameThreadSub)
@@ -61,8 +65,7 @@ class FrgGDetails : Fragment() {
 
         val viewEx1: LinearLayout = root.findViewById(R.id.viewEx1)
         val viewEx2: LinearLayout = root.findViewById(R.id.viewEx2)
-        val viewEx3: LinearLayout = root.findViewById(R.id.viewEx3)
-        val viewEx4: LinearLayout = root.findViewById(R.id.viewEx4)
+
 
         val tvTapDrill: TextView = root.findViewById(R.id.tvTapDrill)
         val tvInfoCenterTitle2: TextView = root.findViewById(R.id.tvInfoCenterTitle2)
@@ -73,7 +76,7 @@ class FrgGDetails : Fragment() {
         val tvMinorMajorDiamEs: TextView = root.findViewById(R.id.tvMinorMajorDiamEs)
         val tvMinorMajorDiamEi: TextView = root.findViewById(R.id.tvMinorMajorDiamEi)
 
-        val tvInMajorDiamMin: TextView = root.findViewById(R.id.tvInMajorDiamMin)
+
 
         val tvPitchDiam: TextView = root.findViewById(R.id.tvPitchDiam)
         val tvPitchDiamMax: TextView = root.findViewById(R.id.tvPitchDiamMax)
@@ -98,7 +101,7 @@ class FrgGDetails : Fragment() {
 
 
         if (isEx) tvTypeThread.text = getString(string.name_thread_ex)
-        else tvTypeThread.text = getString(string.name_thread_шт)
+        else tvTypeThread.text = getString(string.name_thread_in)
 
         tvThreadPerInch.text = HelpMy.formatDecimal(model.threadPer)
 
@@ -118,13 +121,9 @@ class FrgGDetails : Fragment() {
 
             viewEx1.visibility = View.GONE
             viewEx2.visibility = View.VISIBLE
-            viewEx3.visibility = View.GONE
-            viewEx4.visibility = View.GONE
         } else {
             viewEx1.visibility = View.VISIBLE
             viewEx2.visibility = View.GONE
-            viewEx3.visibility = View.VISIBLE
-            viewEx4.visibility = View.VISIBLE
         }
 
 
@@ -266,23 +265,105 @@ class FrgGDetails : Fragment() {
 
 
 
-
-        if (isMM) tvInMajorDiamMin.text = HelpMy.formatDecimal(model.inMajorDiaMin)
-        else tvInMajorDiamMin.text = HelpMy.mmToInch(model.inMajorDiaMin)
-
-
-
+//
+//        if (isMM) tvInMajorDiamMin.text = HelpMy.formatDecimal(model.inMajorDiaMin)
+//        else tvInMajorDiamMin.text = HelpMy.mmToInch(model.inMajorDiaMin)
+//
 
 
-        setOtherSettingThread(root, model)
 
-        setImageThread(root)
+        setTtvMinorMajorDiam2()
+
+
+        setOtherSettingThread()
+
+        setImageThread()
 
 
         return root
     }
 
-    private fun setImageThread(root: View) {
+    private fun setTtvMinorMajorDiam2() {
+        val tvInfoCenterTitle3: TextView = root.findViewById(R.id.tvInfoCenterTitle3)
+        val tvMinorMajorDiam2: TextView = root.findViewById(R.id.tvMinorMajorDiam2)
+        val tvMinorMajorDiamMax2: TextView = root.findViewById(R.id.tvMinorMajorDiamMax2)
+        val tvMinorMajorDiamMean2: TextView = root.findViewById(R.id.tvMinorMajorDiamMean2)
+        val tvMinorMajorDiamMin2: TextView = root.findViewById(R.id.tvMinorMajorDiamMin2)
+        val tvMinorMajorDiamEs2: TextView = root.findViewById(R.id.tvMinorMajorDiamEs2)
+        val tvMinorMajorDiamEi2: TextView = root.findViewById(R.id.tvMinorMajorDiamEi2)
+
+        val text = if (isEx) resources.getString(string.minor_diameter)
+        else resources.getString(string.major_diameter)
+
+        tvInfoCenterTitle3.text = text
+
+        var diam: String
+        var mean: String
+        var min: String
+        var max: String
+        var ei = ""
+        var es = ""
+
+        if (isEx) {
+            diam = HelpMy.formatDecimal((HelpMy.stringToDouble(model.exMajorDiaMin) + dGetThreadDepth()*2).toString())
+            max = HelpMy.formatDecimal((HelpMy.stringToDouble(model.exMajorDiaMax) + dGetThreadDepth()*2).toString())
+            min = HelpMy.formatDecimal((HelpMy.stringToDouble(model.exMajorDiaMin) + dGetThreadDepth()*2).toString())
+
+
+            ei = HelpMy.formatDecimal(
+                (HelpMy.stringToDouble(min) - (HelpMy.stringToDouble(max))).toString()
+            )
+
+            mean = HelpMy.formatDecimal(
+                (abs((HelpMy.stringToDouble(max) + (HelpMy.stringToDouble(min))) / 2).toString())
+            )
+
+
+            if (!isMM) {
+                ei = HelpMy.mmToInch(ei)
+                diam = HelpMy.mmToInch(diam)
+                max = HelpMy.mmToInch(max)
+                min = HelpMy.mmToInch(min)
+                mean = HelpMy.mmToInch(mean)
+            }
+        } else {
+
+            diam = HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMin) + dGetThreadDepth()*2).toString())
+            max = HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMax) + dGetThreadDepth()*2).toString())
+            min = HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMin) + dGetThreadDepth()*2).toString())
+
+
+            es =
+                HelpMy.formatDecimal(
+                    (HelpMy.stringToDouble(max) - (HelpMy.stringToDouble(min))).toString()
+                )
+
+            mean = HelpMy.formatDecimal(
+                abs((HelpMy.stringToDouble(max) + (HelpMy.stringToDouble(min))) / 2).toString()
+            )
+
+
+            if (!isMM) {
+                es = HelpMy.mmToInch(es)
+                diam = HelpMy.mmToInch(diam)
+
+                max = HelpMy.mmToInch(max)
+                min = HelpMy.mmToInch(min)
+                mean = HelpMy.mmToInch(mean)
+            }
+        }
+
+        if (!isEx) es = "+$es"
+
+        tvMinorMajorDiam2.text = diam
+        tvMinorMajorDiamMax2.text = max
+        tvMinorMajorDiamMean2.text = mean
+        tvMinorMajorDiamMin2.text = min
+        tvMinorMajorDiamEs2.text = es
+        tvMinorMajorDiamEi2.text = ei
+    }
+
+    private fun setImageThread() {
         val ivDraw: ImageView = root.findViewById(R.id.iv_draw)
         val image: Int = if (!isEx) {
             if (sp.getBoolean("pref_dark", false)) drawable.ic_in_draw_light
@@ -296,17 +377,18 @@ class FrgGDetails : Fragment() {
         ivDraw.setImageResource(image)
     }
 
-    private fun setOtherSettingThread(root: View, model: ModelG) {
+    private fun setOtherSettingThread() {
         val tvh: TextView = root.findViewById(R.id.tv_h)
         val tvH: TextView = root.findViewById(R.id.tv_H)
         val tvr: TextView = root.findViewById(R.id.tv_r)
 
         var hOrR = (0.960491 * (HelpMy.stringToDouble(model.threadPitch))).toString()
+
         if (isMM) tvH.text = HelpMy.formatDecimal(hOrR)
         else tvH.text = HelpMy.mmToInch(hOrR)
 
 
-        hOrR = (0.640327 * (HelpMy.stringToDouble(model.threadPitch))).toString()
+        hOrR = dGetThreadDepth().toString()
         if (isMM) tvh.text = HelpMy.formatDecimal(hOrR)
         else tvh.text = HelpMy.mmToInch(hOrR)
 
@@ -315,4 +397,6 @@ class FrgGDetails : Fragment() {
         if (isMM) tvr.text = HelpMy.formatDecimal(hOrR)
         else tvr.text = HelpMy.mmToInch(hOrR)
     }
+
+    private fun dGetThreadDepth() = (0.640327 * (HelpMy.stringToDouble(model.threadPitch)))
 }

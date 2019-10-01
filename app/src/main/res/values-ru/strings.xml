@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">G Резьба</string>
+
+
+
+
+    <string name="info_rate">Поделитесь своим мнением о приложении в Google Play.</string>
+
+
+
+    <string name="pref_brief_dark_theme">Использовать темную тему</string>
+    <string name="pref_dark_title_theme">Темная тема</string>
+    <string name="pref_brief_color_theme">Выберите цвет темы для интерфейса</string>
+    <string name="pref_title_color_theme">Выбор цвета приложения</string>
+    <string name="pref_Interface">Интерфейс</string>
+    <string name="pref_rate">Другое</string>
+    <string name="title_rate">Оценить G Резьбу</string>
+    <string name="dialog_Message_rate">Вы желаете оценить приложение в магазине Google Play?</string>
+    <string name="dialog_positive_rate">Да</string>
+    <string name="dialog_negative_rate">Нет, спасибо</string>
+
+
+
+
+
+
+
+        <string name="thread_designations">Обозначение резьбы</string>
+        <string name="basic_major_diameter">Базовый диаметр</string>
+        <string name="major_diameter">Наружний диаметр d(=D)</string>
+
+        <string name="thread_per_inch">Число ниток на дюйм</string>
+
+        <string name="class_of_fit">Класс резьбы</string>
+
+        <string name="max">Max</string>
+
+    <string name="pitch_diameter">Средний диаметр d2(=D2)</string>
+        <string name="tolerance">Допуск</string>
+
+
+        <string name="minor_diameter">Внутренний диаметр d1(=D1)</string>
+
+        <string name="inch">дюйм</string>
+        <string name="mm">мм</string>
+
+
+
+        <string name="pitch">Шаг резьбы</string>
+        <!---->
+
+    <string name="thread_depth">Глубина резьбы, h</string>
+
+
+
+
+
+
+
+
+        <string name="mean">Средний</string>
+        <string name="other_settings">Остальные параметры</string>
+    <string name="r">Радиус скругления резьбы, r(max)</string>
+
+
+    <!--<string name="email_address">a.dev.mobile@gmail.com</string>-->
+    <string name="action_settings">Настройки</string>
+    <string name="name_thread_ex">G - Трубная цилиндрическая наружняя</string>
+    <string name="name_thread_in">G - Трубная цилиндрическая внутренняя</string>
+    <string name="thread_H">Высота исходного треугольника, Н</string>
+    <string name="diam_drill">Диаметр сверла</string>
+    <string name="min">Min</string>
+    <string name="action_rating">Оценить приложение</string>
+
+
+</resources>

@@ -130,7 +130,23 @@
                 style="@style/style_value_setting_info" />
 
         </LinearLayout>
+        <LinearLayout
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/thread_depth" />
+
+            <TextView
+
+                android:id="@+id/tv_h"
+                style="@style/style_value_setting_info" />
+        </LinearLayout>
         <View style="@style/style_divider" />
 
 
@@ -252,6 +268,11 @@
 
                 android:text="7" />
         </LinearLayout>
+
+
+
+
+
 
         <View style="@style/style_divider" />
 
@@ -383,7 +404,7 @@
             <View style="@style/style_divider" />
 
             <TextView
-
+                android:id="@+id/tvInfoCenterTitle3"
                 style="@style/gInfoNameMain"
                 android:textSize="14sp"
                 android:text="@string/major_diameter" />
@@ -391,7 +412,53 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/viewEx4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+                android:text="@string/tolerance" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+
+                <TextView
+
+                    android:id="@+id/tvMinorMajorDiam2"
+                    style="@style/style_value_setting_info"
+
+                    android:text="6" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvMinorMajorDiamEs2"
+                        style="@style/style_es" />
+
+                    <TextView
+                        android:id="@+id/tvMinorMajorDiamEi2"
+                        style="@style/style_ei" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -401,14 +468,54 @@
 
                 style="@style/style_name_setting_info"
 
+                android:text="@string/max" />
+
+            <TextView
+                android:id="@+id/tvMinorMajorDiamMax2"
+
+                style="@style/style_value_setting_info"
+
+                android:text="9" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+
+                android:text="@string/mean" />
+
+            <TextView
+                android:id="@+id/tvMinorMajorDiamMean2"
+                style="@style/style_value_setting_info"
+
+                android:text="8" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/style_name_setting_info"
+
                 android:text="@string/min" />
 
             <TextView
-                android:id="@+id/tvInMajorDiamMin"
+                android:id="@+id/tvMinorMajorDiamMin2"
                 style="@style/style_value_setting_info"
 
-                />
+                android:text="7" />
         </LinearLayout>
+
 
         <LinearLayout
 
@@ -446,23 +553,7 @@
         </LinearLayout>
 
 
-        <LinearLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-
-                style="@style/style_name_setting_info"
-
-                android:text="@string/thread_h" />
-
-            <TextView
-
-                android:id="@+id/tv_h"
-                style="@style/style_value_setting_info" />
-        </LinearLayout>
 
         <LinearLayout
 
@@ -474,7 +565,7 @@
 
                 style="@style/style_name_setting_info"
 
-                android:text="@string/rounding_r1" />
+                android:text="@string/r" />
 
             <TextView
 
