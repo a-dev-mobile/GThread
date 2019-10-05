@@ -95,24 +95,6 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <TextView
-
-                style="@style/style_name_setting_info"
-                android:text="@string/pitch" />
-
-            <TextView
-                android:id="@+id/tvThreadPith"
-                style="@style/style_value_setting_info" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/viewEx2"
             android:layout_width="match_parent"
@@ -130,6 +112,24 @@
                 style="@style/style_value_setting_info" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+
+                style="@style/style_name_setting_info"
+                android:text="@string/pitch" />
+
+            <TextView
+                android:id="@+id/tvThreadPith"
+                style="@style/style_value_setting_info" />
+
+        </LinearLayout>
+
+
         <LinearLayout
 
             android:layout_width="match_parent"

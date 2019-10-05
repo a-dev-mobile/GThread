@@ -66,7 +66,6 @@ class FrgGDetails : Fragment() {
         val viewEx1: LinearLayout = root.findViewById(R.id.viewEx1)
         val viewEx2: LinearLayout = root.findViewById(R.id.viewEx2)
 
-
         val tvTapDrill: TextView = root.findViewById(R.id.tvTapDrill)
         val tvInfoCenterTitle2: TextView = root.findViewById(R.id.tvInfoCenterTitle2)
         val tvMinorMajorDiam: TextView = root.findViewById(R.id.tvMinorMajorDiam)
@@ -75,8 +74,6 @@ class FrgGDetails : Fragment() {
         val tvMinorMajorDiamMin: TextView = root.findViewById(R.id.tvMinorMajorDiamMin)
         val tvMinorMajorDiamEs: TextView = root.findViewById(R.id.tvMinorMajorDiamEs)
         val tvMinorMajorDiamEi: TextView = root.findViewById(R.id.tvMinorMajorDiamEi)
-
-
 
         val tvPitchDiam: TextView = root.findViewById(R.id.tvPitchDiam)
         val tvPitchDiamMax: TextView = root.findViewById(R.id.tvPitchDiamMax)
@@ -263,16 +260,12 @@ class FrgGDetails : Fragment() {
         tvPitchDiamEs.text = es
         tvPitchDiamEi.text = ei
 
-
-
 //
 //        if (isMM) tvInMajorDiamMin.text = HelpMy.formatDecimal(model.inMajorDiaMin)
 //        else tvInMajorDiamMin.text = HelpMy.mmToInch(model.inMajorDiaMin)
 //
 
-
-
-        setTtvMinorMajorDiam2()
+        setTvMinorMajorDiam2()
 
 
         setOtherSettingThread()
@@ -283,7 +276,7 @@ class FrgGDetails : Fragment() {
         return root
     }
 
-    private fun setTtvMinorMajorDiam2() {
+    private fun setTvMinorMajorDiam2() {
         val tvInfoCenterTitle3: TextView = root.findViewById(R.id.tvInfoCenterTitle3)
         val tvMinorMajorDiam2: TextView = root.findViewById(R.id.tvMinorMajorDiam2)
         val tvMinorMajorDiamMax2: TextView = root.findViewById(R.id.tvMinorMajorDiamMax2)
@@ -305,9 +298,13 @@ class FrgGDetails : Fragment() {
         var es = ""
 
         if (isEx) {
-            diam = HelpMy.formatDecimal((HelpMy.stringToDouble(model.exMajorDiaMin) + dGetThreadDepth()*2).toString())
-            max = HelpMy.formatDecimal((HelpMy.stringToDouble(model.exMajorDiaMax) + dGetThreadDepth()*2).toString())
-            min = HelpMy.formatDecimal((HelpMy.stringToDouble(model.exMajorDiaMin) + dGetThreadDepth()*2).toString())
+            diam = HelpMy.formatDecimal(model.exMinorDiaMax)
+            max = diam
+            min = HelpMy.formatDecimal(
+                (HelpMy.stringToDouble(max) + HelpMy.stringToDouble(model.exMajorDiaMin) - HelpMy.stringToDouble(
+                    model.exMajorDiaMax
+                )).toString()
+            )
 
 
             ei = HelpMy.formatDecimal(
@@ -328,9 +325,12 @@ class FrgGDetails : Fragment() {
             }
         } else {
 
-            diam = HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMin) + dGetThreadDepth()*2).toString())
-            max = HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMax) + dGetThreadDepth()*2).toString())
-            min = HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMin) + dGetThreadDepth()*2).toString())
+            diam =
+                HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMin) + dGetThreadDepth() * 2).toString())
+            max =
+                HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMax) + dGetThreadDepth() * 2).toString())
+            min =
+                HelpMy.formatDecimal((HelpMy.stringToDouble(model.inMinorDiaMin) + dGetThreadDepth() * 2).toString())
 
 
             es =

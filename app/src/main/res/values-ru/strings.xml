@@ -24,8 +24,7 @@
 
 
 
-
-        <string name="thread_designations">Обозначение резьбы</string>
+    <string name="thread_designations">Обозначение резьбы</string>
         <string name="basic_major_diameter">Базовый диаметр</string>
         <string name="major_diameter">Наружний диаметр d(=D)</string>
 

@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity2 : AppCompatActivity() {
     companion object {
         private const val TAG = "== MainActivity2"
     }
-
+    lateinit var mAdView: AdView
     private lateinit var modelG: ModelG
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +59,11 @@ class MainActivity2 : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFragment(true)
         }
+
+
+
+        reklama()
+
     }
 
     private val mOnNavigationItemSelectedListener =
@@ -91,4 +99,13 @@ class MainActivity2 : AppCompatActivity() {
         super.onBackPressed()
         this.finish()
     }
+
+
+    private fun reklama() {
+        MobileAds.initialize(this,"ca-app-pub-6155876762943258~3367863784")
+        mAdView = findViewById(R.id.ad_view2)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+    }
+
 }

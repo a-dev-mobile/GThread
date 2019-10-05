@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="a.dev.mobile.gthread">
 
 
@@ -8,12 +9,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_blue"
         android:label="@string/app_name"
-
+        tools:ignore="GoogleAppIndexingWarning"
         android:supportsRtl="true"
 
+        android:theme="@style/AppTheme.Light">
 
-        android:theme="@style/AppTheme.Light"
-        >
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6155876762943258~3367863784" />
 
         <activity
             android:name=".MainActivity"

@@ -18,7 +18,7 @@ class DbSQLiteHelper(private val context: Context) :
 
         private const val TAG = "== DbSQLiteHelper"
         const val DATABASE_NAME = "ThreadDB.db"
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION =1
     }
 
 //==============================

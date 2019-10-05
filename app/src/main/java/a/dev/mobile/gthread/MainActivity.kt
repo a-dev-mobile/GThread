@@ -10,9 +10,14 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_one.toolbar
 
 class MainActivity : AppCompatActivity(), OnGSelected {
+    lateinit var mAdView: AdView
+
     companion object {
         private const val TAG = "== MainActivity"
     }
@@ -24,8 +29,6 @@ class MainActivity : AppCompatActivity(), OnGSelected {
         val i = Intent(this, MainActivity2::class.java)
         i.putExtra(ConstText.GMODEL_INTENT, modelG)
         startActivity(i)
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +37,8 @@ class MainActivity : AppCompatActivity(), OnGSelected {
 
 
 
-        if (sp.getBoolean("pref_dark", false))
+
+        if (sp.getBoolean("pref_dark", false)) {
             when (sp.getString("pref_theme", "0")) {
                 "0" -> setTheme(R.style.AppTheme_Dark_Blue)
                 "1" -> setTheme(R.style.AppTheme_Dark_Cyan)
@@ -44,25 +48,30 @@ class MainActivity : AppCompatActivity(), OnGSelected {
                 "5" -> setTheme(R.style.AppTheme_Dark_Red)
                 "6" -> setTheme(R.style.AppTheme_Dark_Indigo)
             }
-        else
-            when (sp.getString("pref_theme", "0")) {
-                "0" -> setTheme(R.style.AppTheme_Light_Blue)
-                "1" -> setTheme(R.style.AppTheme_Light_Cyan)
-                "2" -> setTheme(R.style.AppTheme_Light_Gray)
-                "3" -> setTheme(R.style.AppTheme_Light_Green)
-                "4" -> setTheme(R.style.AppTheme_Light_Purple)
-                "5" -> setTheme(R.style.AppTheme_Light_Red)
-                "6" -> setTheme(R.style.AppTheme_Light_Indigo)
-            }
-
+        } else
+        when (sp.getString("pref_theme", "0")) {
+            "0" -> setTheme(R.style.AppTheme_Light_Blue)
+            "1" -> setTheme(R.style.AppTheme_Light_Cyan)
+            "2" -> setTheme(R.style.AppTheme_Light_Gray)
+            "3" -> setTheme(R.style.AppTheme_Light_Green)
+            "4" -> setTheme(R.style.AppTheme_Light_Purple)
+            "5" -> setTheme(R.style.AppTheme_Light_Red)
+            "6" -> setTheme(R.style.AppTheme_Light_Indigo)
+        }
 
         setContentView(R.layout.activity_one)
+
+
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.ad_view1)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
+
+
+
         setSupportActionBar(toolbar)
-
-
-
-
-
 
         DbSQLiteHelper(this).readableDatabase
 
@@ -87,6 +96,17 @@ class MainActivity : AppCompatActivity(), OnGSelected {
                 .add(R.id.root_layout, FrgG.newInstance(), "gList")
                 .commit()
         }
+
+
+//        reklama()
+
+    }
+
+    private fun reklama() {
+        MobileAds.initialize(this,"ca-app-pub-6155876762943258~3367863784")
+        mAdView = findViewById(R.id.ad_view1)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

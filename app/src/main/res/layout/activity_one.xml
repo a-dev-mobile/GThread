@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -28,6 +29,13 @@
 
 
     <include layout="@layout/root_layout" />
-
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/ad_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        ads:adSize="SMART_BANNER"
+        android:layout_alignParentBottom="true"
+        ads:adUnitId="ca-app-pub-6155876762943258/2280290628" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

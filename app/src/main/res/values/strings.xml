@@ -65,7 +65,7 @@
 
     <string name="mean">Mean</string>
     <string name="other_settings">Other settings</string>
-    <string name="thread_depth">Глубина резьбы, h</string>
+    <string name="thread_depth">Thread depth, h</string>
     <string name="thread_H">Height of Sharp V Thread, H</string>
     <string name="r">Rounding, r(max)</string>
 
@@ -74,6 +74,21 @@
     <string name="name_thread_ex">G - Pipe thread (External)</string>
     <string name="name_thread_in">G - Pipe thread (Internal)</string>
     <string name="diam_drill">Tap Drill</string>
+
+
+
+
+    <!--test ID-->
+    <string name="banner_app" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
+    <!--MY-->
+
+<!--<string name="banner_app" translatable="false">ca-app-pub-6155876762943258~3367863784</string>-->
+
+
+    <string name="banner_1" translatable="false">ca-app-pub-6155876762943258/2280290628</string>
+    <string name="banner_2" translatable="false">ca-app-pub-6155876762943258/9641079352</string>
+
 
 
 </resources>
