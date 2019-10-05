@@ -62,10 +62,14 @@ class MainActivity : AppCompatActivity(), OnGSelected {
         setContentView(R.layout.activity_one)
 
 
-        MobileAds.initialize(this) {}
-        mAdView = findViewById(R.id.ad_view1)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
+
+
+
+
+
+
+
+
 
 
 
@@ -98,15 +102,19 @@ class MainActivity : AppCompatActivity(), OnGSelected {
         }
 
 
-//        reklama()
+        reklama()
 
     }
 
     private fun reklama() {
-        MobileAds.initialize(this,"ca-app-pub-6155876762943258~3367863784")
+
+        MobileAds.initialize(this) {}
         mAdView = findViewById(R.id.ad_view1)
-        val adRequest = AdRequest.Builder().build()
+        val adRequest = AdRequest.Builder()
+            .addTestDevice("DCE6F5A8B4CFE247250D6311F72F819E")
+            .build()
         mAdView.loadAd(adRequest)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

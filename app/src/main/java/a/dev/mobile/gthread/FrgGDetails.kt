@@ -49,6 +49,15 @@ class FrgGDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
+
+
+
+
+
+
+
+
         sp = PreferenceManager.getDefaultSharedPreferences(context)
 
         root = inflater.inflate(R.layout.fragment_g_details, container, false)

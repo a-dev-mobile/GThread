@@ -28,7 +28,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <include layout="@layout/root_layout" />
+    <include layout="@layout/root_layout"        />
     <com.google.android.gms.ads.AdView
         android:id="@+id/ad_view1"
         android:layout_width="match_parent"
@@ -36,6 +36,6 @@
         android:layout_gravity="bottom|center"
         ads:adSize="SMART_BANNER"
         android:layout_alignParentBottom="true"
-        ads:adUnitId="ca-app-pub-6155876762943258/2280290628" />
+        ads:adUnitId="@string/banner_1" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -48,8 +48,8 @@ class MainActivity2 : AppCompatActivity() {
             }
 
 
-
         setContentView(R.layout.activity_two)
+        reklama()
 
         val navView: BottomNavigationView = findViewById(id.nav_view)
 
@@ -62,10 +62,20 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-        reklama()
+
 
     }
 
+    private fun reklama() {
+
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.ad_view2)
+        val adRequest = AdRequest.Builder()
+            .addTestDevice("DCE6F5A8B4CFE247250D6311F72F819E")
+            .build()
+        mAdView.loadAd(adRequest)
+
+    }
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -101,11 +111,5 @@ class MainActivity2 : AppCompatActivity() {
     }
 
 
-    private fun reklama() {
-        MobileAds.initialize(this,"ca-app-pub-6155876762943258~3367863784")
-        mAdView = findViewById(R.id.ad_view2)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-    }
 
 }
