@@ -46,7 +46,7 @@ object HelpMy {
     var contextGetter: (() -> Context)? = null
 
     fun mmToInch(mm: String): String {
-        val decimalFormat = DecimalFormat("###.###")
+        val decimalFormat = DecimalFormat("###.####")
         var value = mm.replace(",", ".")
         value = try {
             decimalFormat.format(java.lang.Double.parseDouble(value) / 25.4).replace(",", ".")
@@ -58,7 +58,7 @@ object HelpMy {
         return value
     }
 
-    private fun formatDecimal(value: String, numberFromPoint: Int): String {
+    fun formatDecimal(value: String, numberFromPoint: Int): String {
 
         var pattern = ""
 
@@ -77,9 +77,13 @@ object HelpMy {
         return text
     }
 
-    fun formatDecimal(value: String): String {
+    fun formatDecimal3(value: String): String {
 
         return formatDecimal(value, 3)
+    }
+    fun formatDecimal4(value: String): String {
+
+        return formatDecimal(value, 4)
     }
 
     fun stringToDouble(value: String): Double {

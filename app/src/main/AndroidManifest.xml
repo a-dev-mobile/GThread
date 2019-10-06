@@ -95,7 +95,7 @@
         <activity-alias
             android:name=".MainActivityIndigo"
             android:enabled="false"
-            android:icon="@mipmap/ic_launcher_red"
+            android:icon="@mipmap/ic_launcher_indigo"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
